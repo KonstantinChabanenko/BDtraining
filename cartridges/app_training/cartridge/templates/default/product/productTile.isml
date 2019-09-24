@@ -15,6 +15,16 @@
             <isinclude template="product/components/pricing/main" />
         </isif>
 
+        <isset name="product_price" value="${product.price}" scope="page" />
+        
+        <isset name="discount" value="${(product_price.list.value - product_price.sales.value) / product_price.list.value * 100}" scope="page" />
+        
+        <isif condition="${product_price.list}">
+            <div class="best-deal" style="color: #c00; text-transform: uppercase">
+                <b><isprint value="${Resource.msgf("best_deal", "product_tile_msgs", null, parseInt(discount))}" encoding="on" /></b>
+            </div>
+        </isif>
+
         <isif condition="${pdict.display.ratings !== false}">
             <isinclude template="product/productTileFooter" />
         </isif>

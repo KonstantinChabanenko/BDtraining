@@ -423,6 +423,7 @@ module.exports = function () {
         var productID = $(this).data('pid');
         var url = $(this).data('action');
         var uuid = $(this).data('uuid');
+        var $threshouldPriceMsg = $(".threshould-price-warning");
 
         var urlParams = {
             pid: productID,
@@ -452,6 +453,11 @@ module.exports = function () {
                 $.spinner().stop();
                 if ($(this).parents('.product-info').hasClass('bonus-product-line-item') && $('.cart-page').length) {
                     location.reload();
+                }
+                if (Number($(".line-item-total-price-amount").text().split("$")[1]) < $threshouldPriceMsg.data("threshold-price")) {
+                    $threshouldPriceMsg.addClass("d-none");
+                } else {
+                    $threshouldPriceMsg.removeClass("d-none");
                 }
             },
             error: function (err) {

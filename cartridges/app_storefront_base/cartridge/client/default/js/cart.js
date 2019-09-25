@@ -3,5 +3,5 @@
 var processInclude = require('./util');
 
 $(document).ready(function () {
-    processInclude(require('./cart/cart'));
+    processInclude(require('../../../../../app_training/cartridge/client/default/js/cart/cart'));
 });

@@ -1,0 +1,9 @@
+<div class="products-container container">
+    <div class="row">
+        <isloop items="${products}" var="product" status="loopstatus" end="3">
+            <div class="col-6 col-md-3">
+                <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'swatches', true, 'ratings', true, 'showQuickView', false)}" />
+            </div>
+        </isloop>
+    </div>
+</div>

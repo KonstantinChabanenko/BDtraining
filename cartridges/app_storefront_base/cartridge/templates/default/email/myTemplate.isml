@@ -1,0 +1,17 @@
+<isset name="product" value="${pdict.product}" scope="page" />
+<isset name="productImg" value="${product.getImage('medium')}" scope="page" />
+<div class="product-container">
+    <div class="product-image" style="float: left">
+        <img src="${productImg.getAbsURL().toString()}" alt="${productImg.getAlt()}">
+    </div>
+    <div class="product-info" style="list-style-position: inside">
+        <b>${Resource.msg("label.description", "product", "Description")}: </b><br/>
+        ${product.getShortDescription()}
+        <br/><br/>
+        <b>${Resource.msg("label.details", "product", "Details")}: </b>
+        <isprint value="${product.getLongDescription()}" encoding="off" />
+        <b>${Resource.msg("label.price", "product", "Price")}: </b><br/>
+        ${product.getPriceModel().getPrice().toFormattedString()}
+    </div>
+    <table style="clear: both"></table>
+</div>

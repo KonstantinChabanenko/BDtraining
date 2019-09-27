@@ -1,0 +1,3 @@
+<h1>${Resource.msgf("newsletter.thanks.primary", "newsletter", null, pdict.context.fname, pdict.context.lname)}.</h1>
+<p>${Resource.msg("newsletter.thanks.secondary", "newsletter", null)}.</p>
+<p>Your coupon code for the 20$ discount on any order: ${pdict.context.coupon}</p>

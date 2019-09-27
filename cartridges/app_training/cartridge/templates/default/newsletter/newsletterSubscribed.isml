@@ -1,0 +1,13 @@
+<isdecorate template="common/layout/page">
+    <h1 class="page-title">
+        Newsletter
+    </h1>
+
+    <div class="container">
+        <isif condition="${pdict.isSubscribed}">
+            User with this email is already subscribed
+        <iselse/>
+            You were subscribed to our newsletter
+        </isif>
+    </div>
+</isdecorate>

@@ -22,7 +22,7 @@ server.post("Show", function(req, res, next) {
 
     var form = req.form;
     var isSubscribed = false;
-    var t = 0;
+
     Transaction.wrap(function() {
         if (!CustomObjectMgr.getCustomObject("NewsletterSubscription", form.dwfrm_newsletter_email)) {
             CustomObjectMgr.createCustomObject("NewsletterSubscription", form.dwfrm_newsletter_email);

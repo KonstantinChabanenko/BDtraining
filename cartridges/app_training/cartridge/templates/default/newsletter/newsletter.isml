@@ -1,0 +1,47 @@
+<isdecorate template="common/layout/page">
+    <isset name="newsletterForm" value="${pdict.form}" scope="page" />
+    
+    <h1 class="page-title">
+        Newsletter
+    </h1>
+
+    <div class="form-wrapper container">
+    <form action="${pdict.actionUrl}" method="POST" <isprint value="${newsletterForm.attributes}" encoding="off" />>
+        <div class="form-group
+            <isif condition="${newsletterForm.email.mandatory === true}">required</isif>">
+            <isif condition="${newsletterForm.email.mandatory === true}"><span style="color: #c00">&#42;</span></isif>
+            <label class="form-control-label" for="email">
+                <isprint value="${newsletterForm.email.label}" encoding="htmlcontent" />
+            </label>
+            <input type="email" class="form-control" id="email"
+                data-missing-error="${Resource.msg("error.message.required", "forms", null)}"
+                <isprint value="${newsletterForm.email.attributes}" encoding="off" />>
+            <div class="invalid-feedback"></div>
+        </div>
+        <div class="form-group
+            <isif condition="${newsletterForm.fname.mandatory === true}">required</isif>">
+            <isif condition="${newsletterForm.email.mandatory === true}"><span style="color: #c00">&#42;</span></isif>
+            <label class="form-control-label" for="fname">
+                <isprint value="${newsletterForm.fname.label}" encoding="htmlcontent" />
+            </label>
+            <input type="text" class="form-control" id="fname"
+                data-missing-error="${Resource.msg("error.message.required", "forms", null)}"
+                <isprint value="${newsletterForm.fname.attributes}" encoding="off" />>
+            <div class="invalid-feedback"></div>
+        </div>
+        <div class="form-group
+            <isif condition="${newsletterForm.lname.mandatory === true}">required</isif>">
+            <isif condition="${newsletterForm.email.mandatory === true}"><span style="color: #c00">&#42;</span></isif>
+            <label class="form-control-label" for="lname">
+                <isprint value="${newsletterForm.lname.label}" encoding="htmlcontent" />
+            </label>
+            <input type="text" class="form-control" id="lname"
+                data-missing-error="${Resource.msg("error.message.required", "forms", null)}"
+                <isprint value="${newsletterForm.lname.attributes}" encoding="off" />>
+            <div class="invalid-feedback"></div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" <isprint value="${newsletterForm.subscribe.attributes}" encoding="on" />>${Resource.msg("newsletter.subscribe", "newsletter", "Subscribe")}</button>
+    </form>
+    </div>
+</isdecorate>
